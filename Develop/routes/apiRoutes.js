@@ -1,4 +1,4 @@
-const uuid = require('uuid/v1')
+const { v4: uuidv4 } = require('uuid')
 
 const fs =  require('fs');
 
@@ -17,7 +17,7 @@ app.get('/api/notes', function(req,res) {
 app.post('/api/notes', (req,res) => {
 
     let addNote = req.body 
-    addNote.id =  uuid()
+    addNote.id =  uuidv4()
     notes.push(addNote)
     const data = JSON.stringify(notes)
 
